@@ -21,15 +21,29 @@
 		</form>
 	</header>
 
-	<section class="result-section">
-
+	<section class="search-results">
+		<h2>Search results</h2>
+		<ul>
+			<li>
+				
+			</li>
+		</ul>
 	</section>
 
 	<footer>
 		Wiktor Czajkowski &copy; 2016. All rights reserved.
 	</footer>
 
+	<script type="text/template" id="search-result-template">
+		<h3>{{ title }}</h3>
+		<a href="{{ url }}" title="{{ title }}">{{ url }}</a>
+		<p>
+			{{ content }}
+		</p>
+	</script>
+
 	<link rel="stylesheet" href="css/main.css">
+	<script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
 	<script src="js/main.js"></script>
 </body>
 </html>
