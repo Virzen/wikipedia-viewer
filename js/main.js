@@ -4,6 +4,7 @@
 	var searchForm = doc.querySelector('.search-form');
 	var inputField = searchForm.querySelector('.search-form__input');
 	var resultsElement = doc.querySelector('.results__list');
+	var messageElement = doc.querySelector('.results__message');
 	var resultTemplate = doc.querySelector('#result-template').innerHTML;
 	var baseUrl = 'https://en.wikipedia.org/wiki/';
 
@@ -18,7 +19,7 @@
 	};
 
 	var extractSearchResults = function extractSearchResults(response) {
-		return response.query.pages;
+		return response.query && response.query.pages || null;
 	};
 
 	var renderResults = function renderResults(response) {
@@ -26,18 +27,22 @@
 			resultsElement.innerHTML = '';
 			var results = extractSearchResults(response);
 
-			for (var itemName in results) {
-				if (results.hasOwnProperty(itemName)) {
-					var item = results[itemName];
+			if (results) {
+				for (var itemName in results) {
+					if (results.hasOwnProperty(itemName)) {
+						var item = results[itemName];
 
-					resultsElement.insertAdjacentHTML(
-						'beforeend',
-						resultTemplate
+						resultsElement.insertAdjacentHTML(
+							'beforeend',
+							resultTemplate
 							.replace(/{{ title }}/g, item.title)
 							.replace(/{{ url }}/g, encodeURI(baseUrl + item.title).replace(/%20/g, '_'))
 							.replace(/{{ excerpt }}/g, item.extract)
-					);
+						);
+					}
 				}
+			} else {
+				messageElement.textContent = 'No results. Sorry.';
 			}
 		}
 	};
