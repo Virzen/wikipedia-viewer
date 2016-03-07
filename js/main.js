@@ -18,6 +18,15 @@
 		});
 	};
 
+	var message = {
+		set: function (text) {
+			messageElement.textContent = text;
+		},
+		clear: function () {
+			messageElement.textContent = '';
+		}
+	};
+
 	var extractSearchResults = function extractSearchResults(response) {
 		return response.query && response.query.pages || null;
 	};
@@ -28,6 +37,8 @@
 			var results = extractSearchResults(response);
 
 			if (results) {
+				message.clear();
+
 				for (var itemName in results) {
 					if (results.hasOwnProperty(itemName)) {
 						var item = results[itemName];
@@ -42,8 +53,10 @@
 					}
 				}
 			} else {
-				messageElement.textContent = 'No results. Sorry.';
+				message.set('No results. Sorry.');
 			}
+		} else {
+			message.set('Connection error. Please try again later.');
 		}
 	};
 
