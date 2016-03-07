@@ -14,31 +14,29 @@
 		<form class="search-form" action="index.html" method="get">
 			<label>
 				Search Wikipedia
-				<input type="search" name="name" value="">
+				<input type="search" name="name" value="" class="search-form__input">
 			</label>
 			<button type="submit">Search</button>
 			<a href="http://en.wikipedia.org/wiki/Special:Random" target="_blank"><button type="button">Random</button></a>
 		</form>
 	</header>
 
-	<section class="search-results">
+	<section class="results">
 		<h2>Search results</h2>
-		<ul>
-			<li>
-				
-			</li>
-		</ul>
+		<div class="results__list">
+
+		</div>
 	</section>
 
 	<footer>
 		Wiktor Czajkowski &copy; 2016. All rights reserved.
 	</footer>
 
-	<script type="text/template" id="search-result-template">
+	<script type="text/template" id="result-template">
 		<h3>{{ title }}</h3>
-		<a href="{{ url }}" title="{{ title }}">{{ url }}</a>
+		<a href="{{ url }}" title="{{ title }}" target="_blank">{{ url }}</a>
 		<p>
-			{{ content }}
+			{{ excerpt }}
 		</p>
 	</script>
 
