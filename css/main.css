@@ -2,4 +2,53 @@
 	box-sizing: border-box;
 }
 
+body {
+	font-size: 1rem;
+	font-family: 'Open Sans', sans-serif;
+	max-width: 35rem;
+	margin: 0 auto;
+}
+
+h1, h2, h3, h4 {
+	margin: 1.414em 0 0.5em;
+	font-weight: inherit;
+	line-height: 1.2;
+}
+
+h1 {
+	font-size: 2.441em;
+}
+
+h2 {
+	font-size: 1.953em;
+}
+
+h3 {
+	font-size: 1.563em;
+}
+
+h4 {
+	font-size: 1.25em;
+}
+
+small, .font-small {
+	font-size: 0.8em;
+}
+
+.paragraph {
+	max-width: 31em;
+}
+
+.results {
+	display: none;
+}
+
+.results__item {
+	margin: 2rem 0;
+}
+
+.primary-footer {
+	padding: 1rem 0;
+}
+
 /*# sourceMappingURL=main.css.map */
