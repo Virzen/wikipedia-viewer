@@ -61,4 +61,4 @@ dist/
 
 # Sourcemap files #
 ###################
-.map
+*.map
