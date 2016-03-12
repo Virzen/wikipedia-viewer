@@ -1,8 +1,7 @@
 // compileExpanded
 
 $bg-color: #F6F6F6;
-$primary-color: #1919FF;
-$secondary-color: #B29200;
+$primary-color: #0C88F7;
 $transition-duration: 0.1s;
 
 * {
@@ -32,10 +31,6 @@ small, .font-small {font-size: 0.8em;}
 // Links coloring
 a:link {
 	color: $primary-color;
-}
-
-a:visited {
-	color: $secondary-color;
 }
 
 .button {
