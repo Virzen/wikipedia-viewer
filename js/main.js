@@ -1,10 +1,17 @@
 (function (doc, win, $) {
 	'use strict';
 
+	if (!Array.from) {
+		Array.from = function (pseudoarray) {
+			return Array.prototype.slice.call(pseudoarray);
+		};
+	}
+
 	var searchForm = doc.querySelector('.search-form');
 	var inputField = searchForm.querySelector('.search-form__input');
-	var resultsElement = doc.querySelector('.results__list');
-	var messageElement = doc.querySelector('.results__message');
+	var resultsElement = doc.querySelector('.results__container');
+	var messageElement = doc.querySelector('.info');
+	var resultsSection = doc.querySelector('.results');
 	var resultTemplate = doc.querySelector('#result-template').innerHTML;
 	var baseUrl = 'https://en.wikipedia.org/wiki/';
 
@@ -18,12 +25,36 @@
 		});
 	};
 
+	/** Interface for providing info to the user */
 	var message = {
 		set: function (text) {
+			toggler.hide(messageElement);
 			messageElement.textContent = text;
+			toggler.show(messageElement);
 		},
 		clear: function () {
+			toggler.hide(messageElement);
 			messageElement.textContent = '';
+		}
+	};
+
+	/** Interface for toggling results */
+	var toggler = {
+		show: function (element) {
+			var classes = Array.from(element.classList);
+			var isHidden = classes.indexOf('hidden') !== -1;
+
+			if (isHidden) {
+				element.classList.remove('hidden');
+			}
+		},
+		hide: function (element) {
+			var classes = Array.from(element.classList);
+			var isHidden = classes.indexOf('hidden') !== -1;
+
+			if (!isHidden) {
+				element.classList.add('hidden');
+			}
 		}
 	};
 
@@ -31,7 +62,15 @@
 		return response.query && response.query.pages || null;
 	};
 
+	/**
+	 * Main rendering function
+	 * It is used as callback of ajax call, so extracts needed data form
+	 * response object (using `extractSearch`)
+	 * @param  {object} response
+	 * @return {none}
+	 */
 	var renderResults = function renderResults(response) {
+		toggler.hide(resultsSection);
 		if (response) {
 			resultsElement.innerHTML = '';
 			var results = extractSearchResults(response);
@@ -52,6 +91,7 @@
 						);
 					}
 				}
+				toggler.show(resultsSection);
 			} else {
 				message.set('No results. Sorry.');
 			}
@@ -64,5 +104,6 @@
 		event.preventDefault();
 		wikiQuery(inputField.value, renderResults);
 	}, false);
+
 }(document, window, jQuery));
 /*global jQuery*/
