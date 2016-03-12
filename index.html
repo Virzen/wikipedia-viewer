@@ -13,6 +13,7 @@
 		<h1 class="primary-heading">Wikipedia Viewer</h1>
 		<form class="search-form" action="index.html" method="get">
 			<label>
+				Search Wikipedia
 				<input type="search" name="name" value="" class="search-form__input" autofocus="true">
 			</label>
 			<br>
@@ -21,8 +22,8 @@
 		</form>
 	</header>
 
-	<p class="info"></p>
-	<section class="results">
+	<p class="info hidden"></p>
+	<section class="results hidden">
 		<h2>Search results</h2>
 		<div class="results__container">
 
@@ -30,7 +31,7 @@
 	</section>
 
 	<footer class="primary-footer">
-		Wiktor Czajkowski &copy; 2016. All rights reserved.
+		<a href="http://wiktorczajkowski.xyz" target="_blank">Wiktor Czajkowski</a> &copy; 2016. All rights reserved.
 	</footer>
 
 	<script type="text/template" id="result-template">
