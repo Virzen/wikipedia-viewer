@@ -58,3 +58,7 @@ node_modules/
 ################
 prod/
 dist/
+
+# Sourcemap files #
+###################
+.map
