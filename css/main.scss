@@ -1,5 +1,9 @@
 // compileExpanded
 
+$bg-color: #F6F6F6;
+$primary-color: #1919FF;
+$secondary-color: #B29200;
+
 * {
 	box-sizing: border-box;
 }
@@ -9,6 +13,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	max-width: 35rem;
 	margin: 0 auto;
+	background-color: $bg-color;
 }
 
 // Typographic scale
@@ -23,9 +28,36 @@ h3 {font-size: 1.563em;}
 h4 {font-size: 1.25em;}
 small, .font-small {font-size: 0.8em;}
 
+// Links coloring
+a:link {
+	color: $primary-color;
+}
 
-.paragraph {
-	max-width: 31em;
+a:visited {
+	color: $secondary-color;
+}
+
+.button {
+	padding: 0.2em 0.5em;
+
+	&:hover, &:focus {
+
+	}
+}
+
+
+.search-form {
+	margin-top: 3rem;
+
+	&__input {
+		width: 100%;
+		padding: 1em;
+		margin-bottom: 0.5em;
+	}
+}
+
+.info {
+	margin-top: 2rem;
 }
 
 .results {
@@ -36,10 +68,6 @@ small, .font-small {font-size: 0.8em;}
 	}
 }
 
-.hidden {
-
-}
-
 .primary-footer {
-	padding: 1rem 0;
+	padding: 2rem 0;
 }

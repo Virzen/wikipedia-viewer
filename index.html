@@ -13,31 +13,31 @@
 		<h1 class="primary-heading">Wikipedia Viewer</h1>
 		<form class="search-form" action="index.html" method="get">
 			<label>
-				Search Wikipedia
-				<input type="search" name="name" value="" class="search-form__input">
+				<input type="search" name="name" value="" class="search-form__input" autofocus="true">
 			</label>
-			<button type="submit">Search</button>
-			<a href="http://en.wikipedia.org/wiki/Special:Random" target="_blank"><button type="button">Random</button></a>
+			<br>
+			<button type="submit" class="button button--primary">Search</button>
+			<a href="http://en.wikipedia.org/wiki/Special:Random" target="_blank"><button type="button" class="button">Random</button></a>
 		</form>
 	</header>
 
+	<p class="info"></p>
 	<section class="results">
 		<h2>Search results</h2>
-		<p class="results__message"></p>
-		<div class="results__list">
+		<div class="results__container">
 
 		</div>
 	</section>
 
-	<footer>
+	<footer class="primary-footer">
 		Wiktor Czajkowski &copy; 2016. All rights reserved.
 	</footer>
 
 	<script type="text/template" id="result-template">
-		<article>
-			<h3>{{ title }}</h3>
-			<a href="{{ url }}" title="{{ title }}" target="_blank">{{ url }}</a>
-			<p>
+		<article class="results__item">
+			<a href="{{ url }}" title="{{ title }}" target="_blank"><h3>{{ title }}</h3></a>
+			{{ url }}
+			<p class="paragraph">
 				{{ excerpt }}
 			</p>
 		</article>
@@ -46,5 +46,6 @@
 	<link rel="stylesheet" href="css/main.css">
 	<script src="//code.jquery.com/jquery-2.2.1.min.js"></script>
 	<script src="js/main.js"></script>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
 </body>
 </html>

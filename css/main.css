@@ -7,6 +7,7 @@ body {
 	font-family: 'Open Sans', sans-serif;
 	max-width: 35rem;
 	margin: 0 auto;
+	background-color: #F6F6F6;
 }
 
 h1, h2, h3, h4 {
@@ -35,8 +36,30 @@ small, .font-small {
 	font-size: 0.8em;
 }
 
-.paragraph {
-	max-width: 31em;
+a:link {
+	color: #1919FF;
+}
+
+a:visited {
+	color: #B29200;
+}
+
+.button {
+	padding: 0.2em 0.5em;
+}
+
+.search-form {
+	margin-top: 3rem;
+}
+
+.search-form__input {
+	width: 100%;
+	padding: 1em;
+	margin-bottom: 0.5em;
+}
+
+.info {
+	margin-top: 2rem;
 }
 
 .results {
@@ -48,7 +71,7 @@ small, .font-small {
 }
 
 .primary-footer {
-	padding: 1rem 0;
+	padding: 2rem 0;
 }
 
 /*# sourceMappingURL=main.css.map */
