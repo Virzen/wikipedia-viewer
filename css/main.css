@@ -48,6 +48,15 @@ a:visited {
 	padding: 0.2em 0.5em;
 }
 
+.hidden {
+	opacity: 0;
+	transform: translate(0, -1rem);
+}
+
+.info, .results {
+	transition: opacity 0.1s, transform 0.1s;
+}
+
 .search-form {
 	margin-top: 3rem;
 }
@@ -55,15 +64,11 @@ a:visited {
 .search-form__input {
 	width: 100%;
 	padding: 1em;
-	margin-bottom: 0.5em;
+	margin: 0.5em 0;
 }
 
 .info {
 	margin-top: 2rem;
-}
-
-.results {
-	display: none;
 }
 
 .results__item {
@@ -72,6 +77,7 @@ a:visited {
 
 .primary-footer {
 	padding: 2rem 0;
+	clear: both;
 }
 
 /*# sourceMappingURL=main.css.map */

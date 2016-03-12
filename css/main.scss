@@ -3,6 +3,7 @@
 $bg-color: #F6F6F6;
 $primary-color: #1919FF;
 $secondary-color: #B29200;
+$transition-duration: 0.1s;
 
 * {
 	box-sizing: border-box;
@@ -39,10 +40,16 @@ a:visited {
 
 .button {
 	padding: 0.2em 0.5em;
+}
 
-	&:hover, &:focus {
+.hidden {
+	opacity: 0;
+	transform: translate(0, -1rem);
+}
 
-	}
+
+.info, .results {
+	transition: opacity $transition-duration, transform $transition-duration;
 }
 
 
@@ -52,7 +59,7 @@ a:visited {
 	&__input {
 		width: 100%;
 		padding: 1em;
-		margin-bottom: 0.5em;
+		margin: 0.5em 0;
 	}
 }
 
@@ -61,7 +68,6 @@ a:visited {
 }
 
 .results {
-	display: none;
 
 	&__item {
 		margin: 2rem 0;
@@ -70,4 +76,5 @@ a:visited {
 
 .primary-footer {
 	padding: 2rem 0;
+	clear: both;
 }
